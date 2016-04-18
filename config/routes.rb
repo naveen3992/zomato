@@ -1,4 +1,6 @@
 Zomato::Application.routes.draw do
+  resources :restaurants
+
   get "rowners/login"
 
   get "rowners/signup"

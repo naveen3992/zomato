@@ -8,6 +8,13 @@ class UsersController < ApplicationController
 
   def show
   	@user=User.find(params[:id])
+
+
+  	@restaurants = Restaurant.search(params[:search])
+
+    respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @restaurants }
   end
 
   def create 
