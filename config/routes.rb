@@ -13,11 +13,11 @@ Zomato::Application.routes.draw do
 
   #get "zomato/Home"
 
-  get "/help" => 'zomato#help'
+  get "help" => 'zomato#help'
 
-  get "/about" => 'zomato#about'
+  get "about" => 'zomato#about'
 
-  get "/contactus" => 'zomato#contactus'
+  get "contactus" => 'zomato#contactus'
 
   resources :users
   resources :rowner
