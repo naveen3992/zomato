@@ -40,3 +40,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
 end
+ group :production do
+
+ 	gem 'puma',           '3.1.0'
+ end 

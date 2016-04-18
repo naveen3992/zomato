@@ -1,7 +1,7 @@
 Zomato::Application.routes.draw do
-  get "rowner/login"
+  get "rowners/login"
 
-  get "rowner/signup"
+  get "rowners/signup"
 
   root :to => 'zomato#home'
 
@@ -20,7 +20,7 @@ Zomato::Application.routes.draw do
   get "contactus" => 'zomato#contactus'
 
   resources :users
-  resources :rowner
+  resources :rowners
   
 
   # The priority is based upon order of creation:
