@@ -1,9 +1,20 @@
-<div class="center jumbotron">
+<div class="center jumbotron" style="height :500px; width: 1200px;">
   <h1>Welcome to Zomato</h1>
 
 
 </br>
 </br>
+</br>
+<h3>Find the best restaurants, cafés and bars in Delhi NCR </h2>
+<div>
+ <%= form_tag('/restaurants/search', method: :get) do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag("Search")  %>
+      </p>
+      <%end %>
+      
+</div>
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
   
