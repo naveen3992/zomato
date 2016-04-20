@@ -1,2 +1,0 @@
-module RownersHelper
-end

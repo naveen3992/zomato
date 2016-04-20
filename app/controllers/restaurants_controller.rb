@@ -4,11 +4,39 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @restaurants }
     end
   end
+
+
+def userrest
+
+@selected_rest=User.where(email: params[:session][:email].downcase).first.restaurants
+
+
+respond_to do |format|
+      format.html # userest.html.erb
+      format.json { render json: @selected_rest }
+    end
+
+
+end
+
+
+def search
+
+
+@restaurants = Restaurant.search(params[:search])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @restaurants }
+    end
+
+end
 
   # GET /restaurants/1
   # GET /restaurants/1.json

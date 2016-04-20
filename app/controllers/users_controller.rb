@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def login
   end
 
@@ -8,24 +9,19 @@ class UsersController < ApplicationController
 
   def show
   	@user=User.find(params[:id])
-
-
-  	@restaurants = Restaurant.search(params[:search])
-
-    respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @restaurants }
-  end
+	end
 
   def create 
   	@user =User.new(params[:user])
   	if @user.save 
+  		log_in @user
   		flash[:success] = "Welcome to Zomato!"
   		redirect_to @user
   	else
   	render 'new'
+   end
     end
-  end
+  
 
   def new 
   	@user=User.new

@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
 
-
+has_many :reviews
+belongs_to :user
 
 def self.search(search)
     if search
@@ -8,6 +9,7 @@ def self.search(search)
     else
         find(:all)
     end
+end
 
 
 end

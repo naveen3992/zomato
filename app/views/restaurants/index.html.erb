@@ -13,9 +13,12 @@
     <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
     <td><%= link_to 'Destroy', restaurant, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
+  <%= restaurant.name %>
 <% end %>
 </table>
 
 <br />
+
+
 
 <%= link_to 'New Restaurant', new_restaurant_path %>

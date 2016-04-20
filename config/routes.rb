@@ -4,31 +4,27 @@ Zomato::Application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get     'signup' =>  'users#signup'
 
-
-
-  get "rowners/login"
-
-  get "rowners/signup"
-
-  root :to => 'zomato#home'
-
-  get "users/login"
-
-  get "users/signup"
-
-  get "users/show"
-
-  #get "zomato/Home"
-
-  get "help" => 'zomato#help'
+ get "help" => 'zomato#help'
 
   get "about" => 'zomato#about'
 
   get "contactus" => 'zomato#contactus'
 
+  
+
+  root :to => 'zomato#home'
+
+
+  #get "zomato/Home"
+
+ 
+
   resources :users
-  resources :rowners
+  resources :restaurants do
+    get :search, on: :collection
+  end
   
 
   # The priority is based upon order of creation:

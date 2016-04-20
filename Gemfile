@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'bcrypt-ruby'
 gem 'rails', '3.1.4'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'debugger'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
