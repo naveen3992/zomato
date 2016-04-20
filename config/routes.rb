@@ -3,7 +3,7 @@ Zomato::Application.routes.draw do
   
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  post 'logout'  => 'sessions#destroy'
   get     'signup' =>  'users#signup'
 
  get "help" => 'zomato#help'
@@ -24,6 +24,7 @@ Zomato::Application.routes.draw do
   resources :users
   resources :restaurants do
     get :search, on: :collection
+    get :userrest,on: :collection
   end
   
 

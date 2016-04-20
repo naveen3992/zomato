@@ -1,21 +1,15 @@
 <h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="row">
 <% @restaurants.each do |restaurant| %>
-  <%= restaurant.name %>
+  <label>Name    :</label><%= restaurant.name %>
+  </br>
+  <label>Address :</label><%= restaurant.address %>
+  </br>
+  <label>Details :</label><%= restaurant.details %>
 <% end %>
-
-
-</table>
-
-<br />
+</div>
 
 
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+

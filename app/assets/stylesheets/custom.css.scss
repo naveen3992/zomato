@@ -5,6 +5,12 @@
 
 $gray-medium-light: #eaeaea;
 
+html, .center jumbotron {
+    margin: 0;
+    height: 100%;
+}
+
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -26,6 +32,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  height:100%
 }
 
 section {

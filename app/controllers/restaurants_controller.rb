@@ -14,14 +14,14 @@ class RestaurantsController < ApplicationController
 
 def userrest
 
-@selected_rest=User.where(email: params[:session][:email].downcase).first.restaurants
+@selected_rest=User.where(id: session[:user_id]).first.restaurants
 
-
+if @selected_rest!=nil
 respond_to do |format|
       format.html # userest.html.erb
       format.json { render json: @selected_rest }
     end
-
+end
 
 end
 
@@ -69,6 +69,7 @@ end
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(params[:restaurant])
+    @restaurant.user_id=current_user.id
 
     respond_to do |format|
       if @restaurant.save
