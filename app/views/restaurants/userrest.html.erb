@@ -1,21 +1,36 @@
 <h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h3> Welcome,<label><%= @user.name %></label> </h3>
+
+<% if @selected_rest!=nil %>
+<label> Your Restaurant's </label> 
+</br>
+<ol>
 
 <% @selected_rest.each do |restaurant| %>
-  <%= restaurant.name %>
+<li>
+ <label>Restaurant Name :</label> <%= restaurant.name %>
+  </br>
+
+  <label> Restaurant Address :</label><%= restaurant.address %>
+  </br>
+  <label> Restaurant Details : </label><%= restaurant.details %>
+  </br>
+  </br>
+  <label> Restaurant Reviews : </label>
+  </br>
+  <%  restaurant.reviews.each do |x| %>
+    <label id="user"><%= x.user.name %> :  <%= x.review_text %> </label>
+    <% end %> 
+
+    </br>
+    </br>
+    </br>
 <% end %>
-
-
-</table>
-
-<br />
+</li>
+<%end %>
+</ol>
 
 
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to "New Restaurant", new_restaurant_path %>

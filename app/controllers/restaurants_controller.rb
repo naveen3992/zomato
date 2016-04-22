@@ -13,14 +13,16 @@ class RestaurantsController < ApplicationController
 
 
 def userrest
+  @user=User.where(id: session[:user_id]).first
 
-@selected_rest=User.where(id: session[:user_id]).first.restaurants
+@selected_rest=@user.restaurants
+@restaurant_reviews=User.where(id: session[:user_id]).first.restaurants.first.reviews
 
-if @selected_rest!=nil
+
 respond_to do |format|
       format.html # userest.html.erb
       format.json { render json: @selected_rest }
-    end
+    
 end
 
 end
@@ -42,6 +44,7 @@ end
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb

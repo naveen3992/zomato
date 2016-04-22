@@ -12,6 +12,8 @@ Zomato::Application.routes.draw do
 
   get "contactus" => 'zomato#contactus'
 
+  post "reviews/create" =>'reviews#create'
+
   
 
   root :to => 'zomato#home'
@@ -19,12 +21,16 @@ Zomato::Application.routes.draw do
 
   #get "zomato/Home"
 
+  get "/restaurants/new" => 'restaurants#new'
+  #get "/restaurants/userrest" => 'restaurants#userrest'
+
  
 
   resources :users
   resources :restaurants do
     get :search, on: :collection
     get :userrest,on: :collection
+
   end
   
 
