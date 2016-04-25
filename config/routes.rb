@@ -26,8 +26,13 @@ Zomato::Application.routes.draw do
 
  
 
-  resources :users
+  resources :users do 
+    resources :restaurants
+    resources :reveiws 
+  end 
+
   resources :restaurants do
+    resources :reviews
     get :search, on: :collection
     get :userrest,on: :collection
 

@@ -43,13 +43,7 @@ end
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant = Restaurant.find(params[:id])
-
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @restaurant }
-    end
+   @restaurant=Restaurant.find(params[:id])
   end
 
   # GET /restaurants/new

@@ -1,5 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
+#config.action_view.JavaScript_expansions[:defaults] = %w(jquery rails application)
+
 require 'rails/all'
 
 if defined?(Bundler)

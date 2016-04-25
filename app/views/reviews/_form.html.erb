@@ -1,0 +1,9 @@
+<div>
+ <%= form_for([@restaurant, @restaurant.reviews.build], remote: true) do |f| %>
+      
+Add review:        <%= f.text_area :review_text %>
+Submit        <%= f.submit  %>
+      </p>
+      <%end %>
+      
+</div>

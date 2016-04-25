@@ -10,31 +10,20 @@
   <label>Restaurant's Details : </label><%= @restaurant.details %>
   </br>
 
-  <h3> Reviews </h3>
-  <% @restaurant.reviews.each do |x|%>
+  <h3> Reviews : </h3>
 
-<label> <%= x.user.name  %>  wrote :</label><%= x.review_text %>
- </br>
-  <%end %>
- 
+  <div id = "reviews">
+   <%= render @restaurant.reviews %>
+ </div>
   
   <% end %>
 
 
 
-
-<%params[:id]=@restaurant.id %>
-
-<div>
- <%= form_tag('/reviews/create', method: :post) do %>
-      <p>
-        <%= text_field_tag :review, params[:review] %><br/>
-                <%= submit_tag("Submit Review")  %>
-      </p>
-      <%end %>
-      
-</div>
 <br />
+
+<h2>Add a review:</h2>
+<%= render "reviews/form" %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
