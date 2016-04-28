@@ -10,6 +10,8 @@ gem 'slim'
 gem 'sidekiq-status'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
+
+gem "searchkick"
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 

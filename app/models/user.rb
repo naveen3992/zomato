@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
 has_many :restaurants 
 has_many :reviews
+has_many :ratings ,as: :rateable
 
 before_save { self.email = email.downcase }
   
