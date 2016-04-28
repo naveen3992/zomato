@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-before_filter :authenticate_user!, except: [:login,:signup]
+before_filter :authenticate_user!, except: [:login,:signup,:create,:new]
 
   def login
   end

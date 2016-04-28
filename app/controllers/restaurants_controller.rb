@@ -41,8 +41,9 @@ else
    @restaurants=($redis.get(params[:search]))
       
       if @restaurants.blank? 
-      @restaurants = Restaurant.search1(params[:search])
-      $redis.set(params[:search],@restaurant)
+        puts "in blank"
+        @restaurants = Restaurant.search1(params[:search])
+        $redis.set(params[:search],@restaurant)
       end
 end
 

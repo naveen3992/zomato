@@ -10,6 +10,7 @@ gem 'slim'
 gem 'sidekiq-status'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
+gem 'rack-mini-profiler',require: false
 
 #gem "searchkick"
 # Bundle edge Rails instead:
@@ -21,6 +22,7 @@ gem 'devise'
 gem 'redis', '3.2.1'
 gem 'redis-rails', '3.1.4'
 gem 'redis-store', '1.1.3'
+gem 'redis-namespace', '1.5.2'
 
 
 # Gems used only for assets and not required

@@ -20,7 +20,7 @@
 
 <br />
 
-<%if !current_user.rowner %>
+<%if current_user!=nil && current_user.rowner %>
 <%= render "reviews/form" %>
 <% end %>
 
