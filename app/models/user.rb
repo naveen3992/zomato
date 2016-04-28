@@ -1,23 +1,31 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-has_many :restaurants
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
+has_many :restaurants 
 has_many :reviews
 
 before_save { self.email = email.downcase }
-  validates :name, presence: true, length: { maximum: 50 }
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
+  
   validates :password, presence: true, length: { minimum: 6 }
 
 
-  def foodie?
-	role=="foodie"
+  
+
+def self.rowner?
+	rowner==true
 end
 
-def rowner?
-	role=="rowner"
-end 
+ 
 end

@@ -1,6 +1,9 @@
 class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
+
+  before_filter :authenticate_user!, except: [:index,:userrest,:search,:show]
+
   def index
     @restaurants = Restaurant.all
 
@@ -13,10 +16,10 @@ class RestaurantsController < ApplicationController
 
 
 def userrest
-  @user=User.where(id: session[:user_id]).first
-
-@selected_rest=@user.restaurants
-@restaurant_reviews=User.where(id: session[:user_id]).first.restaurants.first.reviews
+  
+@user=current_user
+@selected_rest=current_user.restaurants.all
+@restaurant_reviews=@selected_rest.first.reviews
 
 
 respond_to do |format|
@@ -28,10 +31,15 @@ end
 end
 
 
+
+
 def search
 
-
+if params[:search].nil?
+  @restaurants =[]
+else
 @restaurants = Restaurant.search(params[:search])
+end
 
     respond_to do |format|
       format.html # index.html.erb

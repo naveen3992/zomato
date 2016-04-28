@@ -5,11 +5,17 @@ gem 'rails', '3.1.4'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'debugger'
 gem 'sidekiq'
-
+gem 'sinatra', require: false
+gem 'slim'
+gem 'sidekiq-status'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+
+gem 'devise'
 
 
 # Gems used only for assets and not required

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <% if @restaurant!=nil %>
 
 
@@ -22,11 +20,13 @@
 
 <br />
 
-<h2>Add a review:</h2>
+<%if !current_user.rowner %>
 <%= render "reviews/form" %>
+<% end %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
 
 </br>
 </br>

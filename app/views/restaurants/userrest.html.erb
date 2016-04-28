@@ -32,5 +32,6 @@
 </ol>
 
 
-
+<% if @user.rowner %>
 <%= link_to "New Restaurant", new_restaurant_path %>
+<% end %>

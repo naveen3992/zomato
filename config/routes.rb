@@ -1,10 +1,15 @@
 Zomato::Application.routes.draw do
 
   
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
+  devise_for :users
+
+  get    'login'   => 'users#login'
+  post   'login'   => 'users#create'
   post 'logout'  => 'sessions#destroy'
-  get     'signup' =>  'users#signup'
+  get     'users/sign_up' =>  'users#signup'
+  
+  #get 'search' => 'restaurants#search'
+  #post 'search' => 'restaurants#search'
 
  get "help" => 'zomato#help'
 
@@ -28,7 +33,7 @@ Zomato::Application.routes.draw do
 
   resources :users do 
     resources :restaurants
-    resources :reveiws 
+    resources :reviews
   end 
 
   resources :restaurants do
