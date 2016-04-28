@@ -38,7 +38,12 @@ def search
 if params[:search].nil?
   @restaurants =[]
 else
-@restaurants = Restaurant.search(params[:search])
+   @restaurants=($redis.get(params[:search]))
+      
+      if @restaurants.blank? 
+      @restaurants = Restaurant.search1(params[:search])
+      $redis.set(params[:search],@restaurant)
+      end
 end
 
     respond_to do |format|

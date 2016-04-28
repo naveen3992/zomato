@@ -4,10 +4,17 @@
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 40%;
   margin-bottom: 15px;
   }
 
 input {
   height: auto !important;
+}
+.submit-btn
+{
+	width:40%;
+}
+.search{
+	width:100% !important;;
 }

@@ -1,7 +1,8 @@
 require 'elasticsearch/model'
 
 class Restaurant < ActiveRecord::Base
-searchkick
+
+#searchkick autocomplete: ['title']
 
 include Elasticsearch::Model
 include Elasticsearch::Model::Callbacks
@@ -22,10 +23,10 @@ def as_indexed_json(options={})
 
 end
 
-def self.search(search)
+def self.search1(search)
     
     if search
-        search('search').records.first
+        Restaurant.search('search').records.first
         #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
         find(:all)

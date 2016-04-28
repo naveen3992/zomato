@@ -4,20 +4,23 @@ gem 'bcrypt-ruby'
 gem 'rails', '3.1.4'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'debugger'
-gem 'sidekiq'
+#gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'sidekiq-status'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 
-gem "searchkick"
+#gem "searchkick"
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
 gem 'devise'
+gem 'redis', '3.2.1'
+gem 'redis-rails', '3.1.4'
+gem 'redis-store', '1.1.3'
 
 
 # Gems used only for assets and not required
