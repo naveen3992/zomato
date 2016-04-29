@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(:version => 20160421104404) do
     t.integer  "restaurant_id"
   end
 
-  create_table "rowners", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
