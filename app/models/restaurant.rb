@@ -26,7 +26,14 @@ end
 def self.search1(search)
     
     if search
-        Restaurant.search(search).records.all
+        Restaurant.search(
+        	query: {
+                    query_string: {
+                                  query: search+'*',
+                                  fields: ["name"]
+                          }
+                  }
+                  ).records.all
         #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
         find(:all)

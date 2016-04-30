@@ -11,6 +11,9 @@ gem 'sidekiq-status'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 gem 'rack-mini-profiler',require: false
+#gem 'devise-async'
+gem 'sidekiq', '2.17.8'
+
 
 #gem "searchkick"
 # Bundle edge Rails instead:
