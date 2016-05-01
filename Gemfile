@@ -14,6 +14,8 @@ gem 'rack-mini-profiler',require: false
 #gem 'devise-async'
 gem 'sidekiq', '2.17.8'
 
+gem 'cancan', '1.6.10'
+
 
 #gem "searchkick"
 # Bundle edge Rails instead:

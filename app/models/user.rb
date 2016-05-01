@@ -23,7 +23,14 @@ before_save { self.email = email.downcase }
 
 
   
+  # User::Roles
+  # The available roles
+  Roles = [ :admin , :default ]
 
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
+  
 def self.rowner?
 	rowner==true
 end
