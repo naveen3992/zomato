@@ -8,11 +8,12 @@
   <label>Restaurant's Details : </label><%= @restaurant.details %>
   </br>
 
-  <h3> Reviews : </h3>
-
+<% if !@restaurant.reviews.blank? %>  
   <div id = "reviews">
+   <h3> Reviews : </h3>
    <%= render @restaurant.reviews %>
  </div>
+ <%end%>
   
   <% end %>
 
@@ -20,7 +21,7 @@
 
 <br />
 
-<%if current_user!=nil && current_user.rowner %>
+<%if current_user!=nil && !current_user.rowner %>
 <%= render "reviews/form" %>
 <% end %>
 
