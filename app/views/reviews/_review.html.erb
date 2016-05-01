@@ -1,5 +1,9 @@
+<% if review.user !=nil %>
+
 <label> <%= review.user.name  %>  wrote :</label><%= review.review_text %>
 
  <%= link_to "Del", [review.restaurant, review], remote: true, :confirm => 'Are you sure?', :method => :delete %>
  </br>
+
+ <%end %>
  
