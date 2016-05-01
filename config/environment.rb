@@ -14,7 +14,7 @@ config.action_mailer.smtp_settings={
 	:domain => "gmail.com",
 	:authentication => "plain",
 	:user_name => "naveen3992",
-	:password => "spirogyra24",
+	:password => "",
 	:enable_starttls_auto => true
 
 }
