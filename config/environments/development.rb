@@ -14,7 +14,8 @@ Zomato::Application.configure do
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -29,4 +30,34 @@ Zomato::Application.configure do
   config.assets.debug = true
 
   Rails.configuration.elastic_host = "localhost:9200"
+
+
+
+
+
+
+  config.action_mailer.delivery_method = :smtp
+=begin
+config.action_mailer.smtp_settings={
+  :address => "smtp.gmail.com",
+  :port =>587,
+  :domain => "gmail.com",
+  :authentication => "plain",
+  :user_name => "naveen3992",
+  :password => "",
+  :enable_starttls_auto => true
+
+}
+=end
+
+
+config.action_mailer.smtp_settings = { :address => 'localhost',
+                                         :port => 1025 }
+
+
+
+config.action_mailer.default_url_options ={
+  :host => "localhost",
+  :port => 3000
+}
 end

@@ -9,8 +9,9 @@ class Notifier < ActionMailer::Base
   def review_created(restaurant)
     @greeting = "Hi"
     @rowner =restaurant.user
+    @restaurant =restaurant
 
 
-    mail to: restaurant.user.email,:subject =>"Review created on your restaurant ",:from =>"naveen3992@gmail.com"
+    mail to: "naveen3992@gmail.com",:subject =>"Review created on your restaurant "
   end 
 end
