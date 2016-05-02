@@ -12,6 +12,6 @@ class Notifier < ActionMailer::Base
     @restaurant =restaurant
 
 
-    mail to: "naveen3992@gmail.com",:subject =>"Review created on your restaurant "
+    mail to: restaurant.user.email,:subject =>"Review created on your restaurant "
   end 
 end
