@@ -1,3 +1,4 @@
+require 'yaml'
 class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
@@ -38,13 +39,33 @@ def search
 if params[:search].nil?
   @restaurants =[]
 else
-   @restaurants=($redis.get(params[:search]))
+  cached_data=$redis.get(params[:search])
+      if !cached_data.blank?
+        @restaurants=YAML::load(cached_data)
       
+      end    
+      puts @restaurants
       if @restaurants.blank? 
         puts "in blank"
         @restaurants = Restaurant.search1(params[:search])
-        $redis.set(params[:search],@restaurant)
+        serialized_data=YAML.dump(@restaurants)
+        puts @restaurants
+        $redis.set(params[:search], serialized_data)
       end
+
+
+
+       # nurturing_data = LocalCache.hget("nurturing", "all_data")
+    # if !nurturing_data.to_bool  
+    #     nurturing_data = all_nurturing_data
+    #     serialized_data = YAML.dump(nurturing_data)
+    #     LocalCache.hset("nurturing", "all_data", serialized_data)
+    # else
+    #   nurturing_data = YAML::load(LocalCache.hget("nurturing", "all_data"))
+    # end
+    # nurturing_data
+
+
 end
 
     respond_to do |format|
